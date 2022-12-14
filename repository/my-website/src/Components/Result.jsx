@@ -10,8 +10,15 @@ const Result = (props) => {
    ) : (
     <td>repos not found</td>
    )
+   const linkRepos = repos.length !==0 ? (
+    repos.data.map((item) => <td>{item.clone_url}</td>)
+   ) : (
+    <td>repos not found</td>
+   )
     return(
         <>
+        <div className='tabels'>
+        <div className='table1'>
         <Table>
             <tbody>
             <tr>        
@@ -20,7 +27,18 @@ const Result = (props) => {
         </tr>
             </tbody>
         </Table>
-       
+        </div>
+        <div className='table2'>
+        <Table>
+            <tbody>
+        <tr>        
+          <td>link</td>
+          <td>{linkRepos}</td>
+        </tr>
+            </tbody>
+        </Table>
+       </div>
+       </div>
         </>
     )
 }
